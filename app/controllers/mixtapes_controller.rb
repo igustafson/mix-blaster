@@ -5,6 +5,7 @@ class MixtapesController < ApplicationController
 
   def show
     @mixtape = Mixtape.find(params[:id])
+    @track = Track.new
   end
 
   def new
@@ -38,7 +39,6 @@ class MixtapesController < ApplicationController
   def destroy
     @mixtape = Mixtape.find(params[:id])
     @mixtape.destroy
-
     redirect_to mixtapes_path
   end
 

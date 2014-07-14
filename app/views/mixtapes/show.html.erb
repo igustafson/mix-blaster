@@ -1,6 +1,66 @@
 <h1><%= @mixtape.title %></h1>
 <p><%= @mixtape.description %></p>
 
+<h2>Playlist</h2>
+<table class="playlist">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Title</th>
+      <th>Artist</th>
+      <th>Duration</th>
+      <th />
+    </tr>
+  </thead>
+  <tbody>
+    <% @mixtape.tracks.order(:position).each do |track| %>
+    <tr>
+      <td class="track-no numeric"><%= track.track_no %></td>
+      <td class="title"><%= track.title %></td>
+      <td class="artist"><%= track.artist %></td>
+      <td class="duration"><%= track.duration %></td>
+      <td>
+        <%= link_to 'X', track_path(track), method: :delete %>
+        <%= link_to '&uarr;'.html_safe, move_up_track_path(track), method: :patch %>
+        <%= link_to '&darr;'.html_safe, move_down_track_path(track), method: :patch %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h2>Add a Track</h2>
+<%= form_for([@mixtape, @mixtape.tracks.build]) do |f| %>
+  <% if @track.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@track.errors.count, "error") %> prohibited
+      this track from being saved:</h2>
+    <ul>
+    <% @track.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :artist %><br>
+    <%= f.text_field :artist %>
+  </p>
+  <p>
+    <%= f.label :duration, 'Length (seconds)' %><br>
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <p><%= link_to 'Edit', edit_mixtape_path(@mixtape.id) %></p>
-<p><%= link_to 'Delete', mixtape_path(@mixtape), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+<p><%= link_to 'Delete', mixtape_path(@mixtape), method: :delete, data: { confirm: 'Do you really want to permanently give up on this mixtape?' } %></p>
 <p><%= link_to '<- Back to Mixtapes', mixtapes_path %></p>

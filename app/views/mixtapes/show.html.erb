@@ -18,7 +18,7 @@
       <td class="track-no numeric"><%= track.track_no %></td>
       <td class="title"><%= track.title %></td>
       <td class="artist"><%= track.artist %></td>
-      <td class="duration"><%= track.duration %></td>
+      <td class="duration"><%= format_duration(track.duration) %></td>
       <td>
         <%= link_to 'X', track_path(track), method: :delete %>
         <%= link_to '&uarr;'.html_safe, move_up_track_path(track), method: :patch %>

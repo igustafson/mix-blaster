@@ -31,7 +31,7 @@
 
 
 <h2>Add a Track</h2>
-<%= render 'tracks/form' %>
+<%= render partial: 'tracks/form', locals: {mixtape: @mixtape, track: @track} %>
 
 <p><%= link_to 'Edit', edit_mixtape_path(@mixtape.id) %></p>
 <p><%= link_to 'Delete', mixtape_path(@mixtape), method: :delete, data: { confirm: 'Do you really want to permanently give up on this mixtape?' } %></p>

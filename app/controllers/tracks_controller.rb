@@ -6,8 +6,9 @@ class TracksController < ApplicationController
   end
 
   def update
+    @mixtape = Mixtape.find(params[:mixtape_id])
     @track = Track.find(params[:id])
-    if @track.update(track_params)
+    if @track.update track_params
       redirect_to @mixtape
     else
       render 'edit'
@@ -36,6 +37,6 @@ class TracksController < ApplicationController
   private
 
   def track_params
-    params.require(:track).permit(:title, :artist, :duration)
+    params.require(:track).permit(:title, :artist, :duration, :minutes, :seconds)
   end
 end

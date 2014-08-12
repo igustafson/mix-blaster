@@ -1,0 +1,29 @@
+<%= form_for([@mixtape, @mixtape.tracks.build]) do |f| %>
+  <% if @track.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@track.errors.count, "error") %> prohibited
+      this track from being saved:</h2>
+    <ul>
+    <% @track.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :artist %><br>
+    <%= f.text_field :artist %>
+  </p>
+  <p>
+    <%= f.label :duration, 'Length (seconds)' %><br>
+    <%= f.text_field :duration %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

@@ -1,0 +1,126 @@
+@font-face {
+  font-family: Giddehand;
+  src: font-url('giddehand/Giddehand.ttf');
+}
+@font-face {
+  font-family: "Aovel Sans Regular";
+  src: font-url("aovel-sans/ASansreg.ttf");
+}
+
+body {
+  font-size: 16px;
+  background: #feeeb0;
+  color: #333;
+}
+
+h1, h2, h3, h4 {
+  font-family: Impact, Charcoal, "Arial Black", Gadget, sans-serif;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+h1.page-title {
+  margin: 0 0 0.3em 0;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 500%;
+  font-family: Impact, Charcoal, "Arial Black", Gadget, sans-serif;
+  color: #f26247;
+  text-shadow: 0.08em 0.08em #085;
+}
+
+a {
+  color: #085;
+}
+
+a:hover {
+  color: #096;
+}
+
+.numeric {
+  text-align: right;
+}
+
+.ember-application {
+  margin: 25px;
+}
+
+.mixtapes {
+  padding: 15px 0 0 15px;
+}
+
+.mixtapes ul {
+  list-style: none;
+  padding: 0 15px 0 0;
+  margin: 0;
+  border-right: dashed 2px #999;
+}
+
+.mixtapes ul li {
+  margin: 8px 0;
+}
+
+.mixtapes ul a {
+  text-decoration: none;
+}
+
+#main-content {
+  padding: 15px;
+}
+
+.updated-at {
+  position: relative;
+  top: -2em;
+  display: block;
+  font-size: 80%;
+  font-family: inherit;
+  color: #999;
+  text-transform: none;
+}
+
+table.playlist {
+  -webkit-border-top-right-radius: 0.5em;
+  -webkit-border-bottom-right-radius: 0.5em;
+  -moz-border-radius-topright: 0.5em;
+  -moz-border-radius-bottomright: 0.5em;
+  border-top-right-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+  background-color: white;
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(50, 50, 50, 0.5);
+  -moz-box-shadow:    2px 2px 3px 0px rgba(50, 50, 50, 0.5);
+  box-shadow:         2px 2px 3px 0px rgba(50, 50, 50, 0.5);
+}
+
+table.playlist tr:first-of-type td {
+  padding-top: 2.5em;
+}
+
+table.playlist td {
+  padding: 1em 0.75em 0 0.75em;
+  border-bottom: solid 1px rgba(0,0,255,0.15);
+}
+
+table.playlist td.track-no {
+  border-right: solid 1px rgba(255,0,0,0.15);
+}
+
+table.playlist td.track-no::after {
+  content: ")";
+}
+
+table.playlist td.title::before,
+table.playlist td.title::after {
+  content: "\"";
+}
+
+table.playlist thead {
+  display: none;
+}
+
+table.playlist tbody {
+  font-family: Giddehand;
+}

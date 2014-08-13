@@ -4,15 +4,18 @@ class MixtapesController < ApplicationController
   end
 
   def show
+    @mixtapes = Mixtape.all
     @mixtape = Mixtape.find(params[:id])
     @track = Track.new
   end
 
   def new
+    @mixtapes = Mixtape.all
     @mixtape = Mixtape.new
   end
 
   def edit
+    @mixtapes = Mixtape.all
     @mixtape = Mixtape.find(params[:id])
   end
 

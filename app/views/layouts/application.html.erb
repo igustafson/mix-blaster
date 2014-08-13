@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1 class="page-title">Mix Blaster</h1>
 
-<%= yield %>
+  <%= content_for?(:content) ? yield(:content) : yield %>
 
 </body>
 </html>
